@@ -67,11 +67,10 @@ def plot_pdf(data, var, ax=None, ls='-', bins=20):
     x = data.loc[:, var]
     mean_hist, mean_bins = np.histogram(x, bins=bins, normed=True)
     # only plot bins with 5 or more data points
-    mean_hist[mean_hist<4/len(x)] = np.nan
+    mean_hist[mean_hist<9/len(x)] = np.nan
     ax.plot((mean_bins[1:] + mean_bins[:-1])/2, mean_hist, ls=ls, alpha=1, color='k')
     
     ax.set_ylabel('pdf')
     ax.set_yscale('log')
-    ax.set_ylim((0.005, 25))
 
     return ax
