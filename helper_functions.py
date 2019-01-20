@@ -11,8 +11,8 @@ def extract_passive_phases(v):
             if not is_previous_v_zero:
                 is_previous_v_zero = True
                 starting_points += [i]
-            elif (i==len(v)-1):
-                action_points += [i]            
+#            elif (i==len(v)-1):
+#                action_points += [i]            
         elif (is_previous_v_zero):
             action_points += [i]
             is_previous_v_zero = False
