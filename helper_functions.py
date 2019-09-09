@@ -2,12 +2,12 @@ import numpy as np
 import scipy.io as spio
 import matplotlib.pyplot as plt
 
-def extract_passive_phases(v):
+def extract_passive_phases(v, threshold=0):
     is_previous_v_zero = False
     starting_points = []
     action_points = []
     for i in np.arange(0,len(v)):
-        if v[i]==0:
+        if abs(v[i])<=threshold:
             if not is_previous_v_zero:
                 is_previous_v_zero = True
                 starting_points += [i]
